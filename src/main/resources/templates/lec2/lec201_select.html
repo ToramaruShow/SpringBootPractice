@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>lec201</title>
+</head>
+<body>
+<h1>lec201</h1>
+<ul>
+    <li th:each="item:${list}" th:text="${item}"></li>
+</ul>
+</body>
+</html>

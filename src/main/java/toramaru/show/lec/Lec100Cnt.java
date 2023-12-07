@@ -3,38 +3,53 @@ package toramaru.show.lec;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jakarta.validation.Valid;
 
 @Controller
 public class Lec100Cnt {
+	@Value("${lec102.result.title}")
+	private String resultTitle;
+	@Value("${lec102.title}")
+	private String[] title;
 	@RequestMapping("/top")
 	public String home(Model model) {
 		String[] urlData = {
 				"/lec1",
-				"/lec1/input"
+				"/lec1/input",
+				"/lec2/select"
 		};
 		model.addAttribute("urlData", urlData);
 		return "top";
 
 	}//home
-
 	@GetMapping("/lec1/input")
-	public String input(@ModelAttribute Contact contact) {
+	public String input(
+//			@ModelAttribute Contact contact,
+			Model model) {
+		model.addAttribute(new Contact());
+
+//	public String input(@ModelAttribute Contact contact, Model model) {
+
+		model.addAttribute("title",title[0]);
 		return "/lec1/lec102_input";
 	}
 
 	@GetMapping("/lec1/result")
-	public String result(@Valid Contact contact, BindingResult result) {
-		if(result.hasErrors()) {
+	public String result(@Valid Contact contact, BindingResult result, Model model) {
+		if (result.hasErrors()) {
 			return "/lec1/lec102_input";
 		}
+
+//		model.addAttribute("title", resultTitle);
+		model.addAttribute("title",title[1]);
+
 		return "/lec1/lec102_result";
 	}
 

@@ -1,0 +1,1 @@
+grant all privileges on *.* to web@localhost identified by 'web';

@@ -9,7 +9,7 @@
 <body>
 	<h1>LecSpring Top</h1>
 	<ul>
-		<li th:each="item:${urlData}" th:text="${item}">
+		<li th:each="item:${urlData}">
 			<a th:href="@{${item}}">[[${item}]]</a>
 		</li>
 	</ul>

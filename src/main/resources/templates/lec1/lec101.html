@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>lec101</title>
+</head>
+
+<body>
+	<h1 th:text="${title1}"></h1>
+	<h2>[[${title2}]]</h2>
+	<h3>Object受け取り</h3>
+	<div th:text="${contact.name}"></div>
+	<ul th:object="${contact}">
+		<li th:text="*{name}"></li>
+	</ul>
+	<h3>Array</h3>
+	<div th:text="${intArray[0]}"></div>
+	<h3>LoopArray</h3>
+	<ul><li th:each="item:${intArray}" th:text="${item}"></li></ul><hr>
+	<ul><li th:each="item:${clist}" th:text="${item}"></li></ul>
+	<h3>LoopObject</h3>
+	<table border="1"><tr  th:each="item:${clist}" th:object="${item}">
+		<td th:text="*{id}">
+		<td th:text="*{name}">
+		<td th:text="*{email}">
+		<td th:text="*{title}">
+		<td th:text="*{contents}">
+		<td th:text="*{recvDate}">		
+		</td></tr></table>
+	<h3>IF</h3>
+	<th:block th:if="${str} == null">
+		NO DATA
+		<div>NO DATA DIV</div>
+	</th:block>
+	<th:block th:if="${str} != null">
+		FOUND DATA
+		[[${str}]]
+		<div th:text="${str}">FOUND DATA DIV</div>
+	</th:block>
+	<th:block th:object="${contact}">
+			<div th:text="*{name}"></div>
+	</th:block>
+</body>
+<!--ここまでのミス原因 -->
+<!-- <>の中に入れてない-->
+<!-- =を忘れた-->
+</html>

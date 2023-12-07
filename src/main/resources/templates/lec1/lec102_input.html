@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>lec102 input</title>
+</head>
+
+<body>
+	<h1>データのやりとり</h1>
+	<ul th:object="${contact}">
+		<li th:each="err:${#fields.detailedErrors()}" th:text="${err.message}"></li>
+	</ul>
+	<form th:object="${contact}" th:action="@{/lec1/result}" th:method="get">
+		<dl>
+			<dt>名前</dt>
+			<dd><input type="text" th:field="*{name}">
+				<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color:red"></span>
+			</dd>
+		</dl>
+		<dl>
+			<dt>メール</dt>
+			<dd><input type="text" th:field="*{email}">
+				<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color:red"></span>
+			</dd>
+		</dl>
+		<dl>
+			<dt>タイトル</dt>
+			<dd><input type="text" th:field="*{title}">
+				<span th:if="${#fields.hasErrors('title')}" th:errors="*{title}" style="color:red"></span>
+			</dd>
+		</dl>
+		<dl>
+			<dt>内容</dt>
+			<dd><textarea cols="30" rows="5" th:field="*{contents}"></textarea></dd>
+		</dl>
+		<p><button type="submit">確認</button></p>
+		<!--<textarea cols="30" rows="5" th:field="*{contents}">aaa</textarea>-->
+	</form>
+</body>
+
+</html>

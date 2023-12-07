@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>lec102 input</title>
+</head>
+
+<body>
+	<h1>データのやりとり 送信結果</h1>
+	<div th:text="${contact}"></div><br>
+	<div th:text="'ID: '+${contact.id}"></div><br>
+	<div th:text="'ORDERNUMBER: '+${contact.ordernumber}"></div><br>
+	<div th:text="'NAME: '+${contact.name}"></div><br>
+	<div th:text="'EMAIL: '+${contact.email}"></div><br>
+	<div th:text="'TITLE: '+${contact.title}"></div><br>
+	<div th:text="'CONTENTS: '+${contact.contents}"></div><br>
+	<div th:text="'Date: '+${contact.recvDate}"></div>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Top</title>
+</head>
+
+<body>
+	<h1>LecSpring Top</h1>
+	<ul>
+		<li th:each="item:${urlData}" th:text="${item}">
+			<a th:href="@{${item}}">[[${item}]]</a>
+		</li>
+	</ul>
+</body>
+
+</html>

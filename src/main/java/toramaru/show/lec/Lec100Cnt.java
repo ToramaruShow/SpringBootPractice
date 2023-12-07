@@ -5,10 +5,39 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import jakarta.validation.Valid;
 
 @Controller
 public class Lec100Cnt {
+	@RequestMapping("/top")
+	public String home(Model model) {
+		String[] urlData = {
+				"/lec1",
+				"/lec1/input"
+		};
+		model.addAttribute("urlData", urlData);
+		return "top";
+
+	}//home
+
+	@GetMapping("/lec1/input")
+	public String input(@ModelAttribute Contact contact) {
+		return "/lec1/lec102_input";
+	}
+
+	@GetMapping("/lec1/result")
+	public String result(@Valid Contact contact, BindingResult result) {
+		if(result.hasErrors()) {
+			return "/lec1/lec102_input";
+		}
+		return "/lec1/lec102_result";
+	}
+
 	@RequestMapping("/lec1")
 	public String showLec1(Model model) {
 		//htmlにデータを渡す
@@ -32,7 +61,7 @@ public class Lec100Cnt {
 		List<Contact> cl = Arrays.asList(con, con1, con2);
 		model.addAttribute("clist", cl);
 		//IF
-		model.addAttribute("str","こんちゃ");
+		model.addAttribute("str", "こんちゃ");
 		return "/lec1/lec101";
-	}
+	}//show rec1 end
 }

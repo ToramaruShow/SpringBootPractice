@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Contact {
 	private String id; //id
-	private String ordernumber; //問い合わせ番号
+	private String orderNumber; //問い合わせ番号
 	@NotEmpty(message="名前を入れてください")
 	private String name; //名前
 	@NotEmpty

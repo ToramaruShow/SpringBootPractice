@@ -9,3 +9,6 @@ This is the URL that can be used at the moment.
 * [lec1/input](http://localhost:8080/LecSpring/lec1/input)
 * [lec1/result](http://localhost:8080/LecSpring/lec1/result)
 * [lec2/select](http://localhost:8080/LecSpring/lec2/select)
+* [lec2/input](http://localhost:8080/LecSpring/lec2/input)
+* [lec2/confirm](http://localhost:8080/LecSpring/lec2/confirm)
+* [lec2/result](http://localhost:8080/LecSpring/lec2/result)

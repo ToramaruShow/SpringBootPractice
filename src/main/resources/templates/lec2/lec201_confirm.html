@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>lec201 confirm</title>
+</head>
+<body>
+	<h1 th:text="${title}"></h1>
+	<form th:object="${contact}" th:action="@{/lec2/result}" th:method="get">
+		<input type="hidden" th:field="*{name}">
+		<input type="hidden" th:field="*{email}">
+		<input type="hidden" th:field="*{title}">
+		<input type="hidden" th:field="*{contents}">
+		<dl>
+			<dt>名前</dt>
+			<dd>
+				<p>[名前] [[*{name}]]</p>
+			</dd>
+		</dl>
+		<dl>
+			<dt>メール</dt>
+			<dd>
+				<p>[メール] [[*{email}]]</p>
+				</dd>
+		</dl>
+		<dl>
+			<dt>タイトル</dt>
+			<dd>
+				<p>[タイトル] [[*{title}]]</p>
+				</dd>
+		</dl>
+		<dl>
+			<dt>内容</dt>
+			<dd>
+				<p>[内容] [[*{contents}]]</p></dd>
+		</dl>
+		<p><button type="submit">確認</button></p>
+		<!--<textarea cols="30" rows="5" th:field="*{contents}">aaa</textarea>-->
+	</form>
+</body>
+
+</html>
